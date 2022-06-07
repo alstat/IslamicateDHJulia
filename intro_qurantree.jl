@@ -4,55 +4,172 @@
 using Markdown
 using InteractiveUtils
 
-# ╔═╡ a59f5338-e592-11ec-20eb-51483ed9ee1f
+# ╔═╡ c7b74be3-1cb3-4a36-9912-51896ca4d366
 using QuranTree
 
-# ╔═╡ 2bc465f5-373f-43a1-9f3b-415e4ca330b1
-using Yunir
-
-# ╔═╡ b996a686-dd66-4a6a-88fe-a4ccf9c715d6
+# ╔═╡ 3ce39a60-9897-4641-84a1-66b223ce65b5
 begin
+	using Dates
 	using HypertextLiteral: @htl
 	using PlutoUI
 	using ShortCodes
-	TableOfContents(title="Content")
+	TableOfContents(title="Content")	
 end
 
-# ╔═╡ 83c4bb76-a16a-4609-8352-a0c2326c7d79
+# ╔═╡ 8e608a5e-7156-410f-839e-67b2679168de
 @htl("""
-<div class="ar-sch basmala">بسم ٱلله ٱلرحمن ٱلرحيم
-</div>
-<div style="text-align: right;"><i>In the name of God, the Lord of Mercy, the Giver of Mercy.</i></div>
+<div style="text-align: right;">
+<i>Chapter 7: Introduction to QuranTree.jl</i>
+<br/><i>last updated: $(Dates.now())</i></div>
 """)
 
-# ╔═╡ 70c047af-5030-4805-80a7-dc0924bb0a0a
+# ╔═╡ 8a015ed0-9efd-4b1f-b60b-ca374788734e
 md"""
-# Introduction
+# Introduction to QuranTree.jl
 
-The advances of computers in recent decades brought forward computational approaches to all areas of disciplines including humanities, creating a new field of what we call today _Digital Humanities_. As for the Islamic Studies, there have been effort on applying Computational Approaches on the study of the Qur'an, such as the work of [Hammo, et al. (2012)](#a).
+In Islamic Studies, there are two main scriptures that are heavily studied in the discipline, the Holy Quran and the Hadith. Computationally, these books needs to be presented in digital form. In Julia, the Quranic Arabic Corpus is provided by the [_QuranTree.jl_](https://alstat.github.io/QuranTree.jl/stable/) library, which we are going to explore in this chapter.
 """
 
-# ╔═╡ fb86dcc2-e4b1-49a5-9d91-dc6efe465f2a
+# ╔═╡ 93d8c791-08c8-41ec-aad0-b235987da09f
 md"""
-## Libraries
-There are two main libraries developed for this task. These are the [_QuranTree.jl_](https://alstat.github.io/QuranTree.jl/stable/) and [_Yunir.jl_](https://alstat.github.io/Yunir.jl/stable/) both developed to cater the needs for _Computational Islamic Studies_ or _Islamic Digital Humanities_.
+## Installation
+
+The [_QuranTree.jl_](https://alstat.github.io/QuranTree.jl/stable/) can be installed in Julia as follows:
+
+```julia
+using Pkg
+Pkg.add("QuranTree")
+```
 """
 
-# ╔═╡ f125349d-71a0-417b-9ac6-b393d8cf9616
-html"""
-Many <span class="ar-sch">مَٰلِكِ يَوْمِ ٱلدِّينِ</span>
-"""
-
-# ╔═╡ 8b3d5715-bb93-4d74-b6eb-8309c4d489b3
-dediac("بِسْمِ ٱللَّهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ")
-
-# ╔═╡ 82af8a11-5416-496a-b355-e8cbf6c0db63
+# ╔═╡ 73ac44ac-9c03-458f-9bcf-92e9284fd2ef
 md"""
-# References
+## Loading the Quran Corpus
+
+The corpus can be loaded as follows, we first load the package:
 """
 
-# ╔═╡ 432ef94d-f27b-4ba4-b0be-fd62f3e9082e
-html"""
+# ╔═╡ 4ba98b09-5d43-4989-9518-7ab8f01fe818
+md"""
+Then the data is loaded as follows:
+"""
+
+# ╔═╡ 45af1f0b-3465-42ee-b90a-1e088e61c895
+crps, tnzl = load(QuranData())
+
+# ╔═╡ 02fa30a6-cb77-405e-b947-e938255f0d3a
+md"""
+The `load(QuranData())` returns a tuple of Quranic Arabic Corpus by Kais Dukes and the Tanzil data by the Tanzil.net. The above codes therefore assigns Duke's corpus to `crps` and the Tanzil data to `tnzl` variable.
+"""
+
+# ╔═╡ 1dad070e-3997-4f7d-a896-ffdbb2bd8d57
+md"""
+Both corpuses above are in their raw text form, and needs further processing for it to be usable for analyses. In particular, we need to convert this text files to tabular form using the `table` function.
+"""
+
+# ╔═╡ cbc8d54e-e638-4793-8086-b67e9cd43f95
+crpsdata = table(crps)
+
+# ╔═╡ ac1494e8-41e6-4fd7-8b2d-53cd527817e3
+tnzldata = table(tnzl)
+
+# ╔═╡ e35e4123-5479-44c8-be13-68bae5e17336
+md"""
+## Indexing Qur'an's Corpuses
+
+To index the corpuses in its tabular form, we follow the following QuranTree.jl's usage:
+
+```julia
+# for Duke's Quranic Arabic Corpus
+crpsdata[<surah>][<verses>][<words>][<parts>]
+
+# for Tanzil Data
+tnzldata[<surah>][<verses>]
+```
+"""
+
+# ╔═╡ f33effb1-1432-4dc9-b5de-cbf5fd13ff54
+md"""
+So, to index chapter 9 verse 2, we do the following:
+"""
+
+# ╔═╡ 9aef4589-857d-4987-a88b-efbff8a4f798
+crpsdata[9][2]
+
+# ╔═╡ 284e0258-c68d-4c06-aa97-bf9ddcfece86
+tnzldata[9][2]
+
+# ╔═╡ dc5ee59d-5712-403f-a4b8-7e8f5008ac0d
+md"""
+## Extracting Verses
+
+To extract the verses, _QuranTree.jl_ provides the `verses` function. So that the verses for chapter 1 are extracted as follows:
+"""
+
+# ╔═╡ c1799b89-0150-40da-ba2a-ab15fb89dc9e
+verses(crpsdata[1])
+
+# ╔═╡ 16b0e967-a50a-4a86-931a-41e4f9fbdf83
+verses(tnzldata[1])
+
+# ╔═╡ e1618bc7-1f99-4f68-9ae6-60f5dd3c013c
+md"""
+!!! note
+	It should be noted that the `verses` function always returns an array.
+"""
+
+# ╔═╡ 2175c4f1-8191-449a-b183-14cef6591d4e
+md"""
+## Qur'an's Morphological Features
+
+To extract the morphological features of a word or part of a word of the Qur'an, we use Duke's Quranic corpus.
+"""
+
+# ╔═╡ 99a4882e-af7b-4dce-aaf7-39d3f7b6e166
+@htl("""
+For example, to get the morphological feature of surah 1, verse 1, and first part of word 1 (the <span class="ar-sch">بِسْمِ</span>)
+""")
+
+# ╔═╡ 6f15c8c1-4253-4d6b-9d61-56684f3af1d2
+bi = crpsdata[1][1][1][1].data[!, :features]
+
+# ╔═╡ c663bfed-9ea7-4cc9-8d57-90bee667769d
+md"We can then parse this as a `QuranFeatures` object:"
+
+# ╔═╡ 97b42d83-f2bf-4420-8a9d-14046c8f34d0
+bi_feat = parse(QuranFeatures, bi[1])
+
+# ╔═╡ d5249e6d-4e24-4354-8e0c-31803b945f3e
+@htl("If we look at the second part of the word <span class='ar-sch'>بِسْمِ</span>, we will have the following:")
+
+# ╔═╡ dcbd63be-3393-4acd-b4b1-66728ef5c885
+somi = crpsdata[1][1][1][2].data[!, :features]
+
+# ╔═╡ fc478995-b3bc-42aa-9665-2e20e5c78214
+somi_feat = parse(QuranFeatures, somi[1])
+
+# ╔═╡ 16f5462c-ff5c-4a79-87e8-d405e60e7837
+md"""
+## QuranTree.jl with DataFrames.jl
+
+The type of `crpsdata` above is `QuranTree.CorpusData` which is a thin wrapper over [_DataFrames.jl's_](a) `DataFrame`. Therefore, advanced data manipulation is possible using the [_DataFrames.jl_](a) APIs. To access the corresponding DataFrame, we simply use the field name `.data`. We can see the difference below:
+"""
+
+# ╔═╡ 45683ccc-660d-4675-887a-df3ff3239a1f
+crpsdata
+
+# ╔═╡ acafed89-10fd-4dc2-96d0-e63d52bae4aa
+crpsdata.data
+
+# ╔═╡ 992b8160-472a-4309-a2f2-1dd2f8a95781
+md"[_Pluto.jl_](a) has proper styling for displaying DataFrames objects. For `tnzldata` the DataFrame is extracted below:"
+
+# ╔═╡ 1288b076-ccf8-4f85-9570-bd12f34a54b5
+tnzldata.data
+
+# ╔═╡ 1fa4d02e-8ec2-40f4-b1f1-c60d8fde4c7d
+@htl("""
+<title>Introduction to QuranTree.jl</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Scheherazade+New:wght@400;700&family=Tajawal&display=swap" rel="stylesheet">
@@ -74,33 +191,22 @@ html"""
 
 </style>
 <hr/>
-"""
-
-# ╔═╡ e403d591-d88c-4812-b1a4-8dff8d463875
-r01 = DOI("10.1142/S1793840612400120");
-
-# ╔═╡ 6f9b931d-6d38-45e7-9737-c6489b1cba46
-@htl("""
-<ol>
-	<li><span id="a">$(r01)</span></li>
-</ol>
 """)
 
 # ╔═╡ 00000000-0000-0000-0000-000000000001
 PLUTO_PROJECT_TOML_CONTENTS = """
 [deps]
+Dates = "ade2ca70-3891-5945-98fb-dc099432e06a"
 HypertextLiteral = "ac1192a8-f4b3-4bfe-ba22-af5b92cd3ab2"
 PlutoUI = "7f904dfe-b85e-4ff6-b463-dae2292396a8"
 QuranTree = "f647ab69-6f05-4d64-883f-59d0fbe08d2b"
 ShortCodes = "f62ebe17-55c5-4640-972f-b59c0dd11ccf"
-Yunir = "6ba116df-6904-454d-b214-90038a8281a6"
 
 [compat]
 HypertextLiteral = "~0.9.4"
 PlutoUI = "~0.7.39"
 QuranTree = "~0.2.0"
 ShortCodes = "~0.3.3"
-Yunir = "~0.1.1"
 """
 
 # ╔═╡ 00000000-0000-0000-0000-000000000002
@@ -494,17 +600,39 @@ uuid = "3f19e933-33d8-53b3-aaab-bd5110c3b7a0"
 """
 
 # ╔═╡ Cell order:
-# ╠═83c4bb76-a16a-4609-8352-a0c2326c7d79
-# ╟─70c047af-5030-4805-80a7-dc0924bb0a0a
-# ╟─fb86dcc2-e4b1-49a5-9d91-dc6efe465f2a
-# ╟─f125349d-71a0-417b-9ac6-b393d8cf9616
-# ╠═a59f5338-e592-11ec-20eb-51483ed9ee1f
-# ╠═2bc465f5-373f-43a1-9f3b-415e4ca330b1
-# ╠═8b3d5715-bb93-4d74-b6eb-8309c4d489b3
-# ╟─82af8a11-5416-496a-b355-e8cbf6c0db63
-# ╟─6f9b931d-6d38-45e7-9737-c6489b1cba46
-# ╠═432ef94d-f27b-4ba4-b0be-fd62f3e9082e
-# ╠═b996a686-dd66-4a6a-88fe-a4ccf9c715d6
-# ╠═e403d591-d88c-4812-b1a4-8dff8d463875
+# ╟─8e608a5e-7156-410f-839e-67b2679168de
+# ╟─8a015ed0-9efd-4b1f-b60b-ca374788734e
+# ╟─93d8c791-08c8-41ec-aad0-b235987da09f
+# ╟─73ac44ac-9c03-458f-9bcf-92e9284fd2ef
+# ╠═c7b74be3-1cb3-4a36-9912-51896ca4d366
+# ╟─4ba98b09-5d43-4989-9518-7ab8f01fe818
+# ╠═45af1f0b-3465-42ee-b90a-1e088e61c895
+# ╟─02fa30a6-cb77-405e-b947-e938255f0d3a
+# ╟─1dad070e-3997-4f7d-a896-ffdbb2bd8d57
+# ╠═cbc8d54e-e638-4793-8086-b67e9cd43f95
+# ╠═ac1494e8-41e6-4fd7-8b2d-53cd527817e3
+# ╟─e35e4123-5479-44c8-be13-68bae5e17336
+# ╟─f33effb1-1432-4dc9-b5de-cbf5fd13ff54
+# ╠═9aef4589-857d-4987-a88b-efbff8a4f798
+# ╠═284e0258-c68d-4c06-aa97-bf9ddcfece86
+# ╟─dc5ee59d-5712-403f-a4b8-7e8f5008ac0d
+# ╠═c1799b89-0150-40da-ba2a-ab15fb89dc9e
+# ╠═16b0e967-a50a-4a86-931a-41e4f9fbdf83
+# ╟─e1618bc7-1f99-4f68-9ae6-60f5dd3c013c
+# ╟─2175c4f1-8191-449a-b183-14cef6591d4e
+# ╟─99a4882e-af7b-4dce-aaf7-39d3f7b6e166
+# ╠═6f15c8c1-4253-4d6b-9d61-56684f3af1d2
+# ╟─c663bfed-9ea7-4cc9-8d57-90bee667769d
+# ╠═97b42d83-f2bf-4420-8a9d-14046c8f34d0
+# ╟─d5249e6d-4e24-4354-8e0c-31803b945f3e
+# ╠═dcbd63be-3393-4acd-b4b1-66728ef5c885
+# ╠═fc478995-b3bc-42aa-9665-2e20e5c78214
+# ╟─16f5462c-ff5c-4a79-87e8-d405e60e7837
+# ╠═45683ccc-660d-4675-887a-df3ff3239a1f
+# ╠═acafed89-10fd-4dc2-96d0-e63d52bae4aa
+# ╟─992b8160-472a-4309-a2f2-1dd2f8a95781
+# ╠═1288b076-ccf8-4f85-9570-bd12f34a54b5
+# ╟─1fa4d02e-8ec2-40f4-b1f1-c60d8fde4c7d
+# ╠═3ce39a60-9897-4641-84a1-66b223ce65b5
 # ╟─00000000-0000-0000-0000-000000000001
 # ╟─00000000-0000-0000-0000-000000000002
