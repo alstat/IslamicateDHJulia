@@ -4,68 +4,42 @@
 using Markdown
 using InteractiveUtils
 
-# ╔═╡ b996a686-dd66-4a6a-88fe-a4ccf9c715d6
+# ╔═╡ 033aee27-3bfc-4ea6-9c79-cc7eea4f1146
 begin
+	using Dates
 	using HypertextLiteral: @htl
 	using PlutoUI
 	using ShortCodes
-	TableOfContents(title="Content")
+	# TableOfContents(title="Content")
 end
 
-# ╔═╡ 83c4bb76-a16a-4609-8352-a0c2326c7d79
+# ╔═╡ 2ad22dd1-b597-4c85-8ee6-82d8473ec433
 @htl("""
 <div class="ar-sch basmala">بسم ٱلله ٱلرحمن ٱلرحيم
 </div>
 <div style="text-align: right;"><i>In the name of God, the Lord of Mercy, the Giver of Mercy.</i></div>
 """)
 
-# ╔═╡ 70c047af-5030-4805-80a7-dc0924bb0a0a
+# ╔═╡ 903c3d00-2f41-11ed-11a8-21ca786c9124
 md"""
-# Introduction
+# Preface
 
-The advances of computers in recent decades brought forward computational approaches to all areas of disciplines including humanities, creating a new field of what we call today _Digital Humanities_. As for the Islamic Studies, there have been effort on applying Computational Approaches on the study of the Qur'an, such as the work of [Hammo, et al. (2012)](#hammon2012).
+There is always an insight in approaching the problem with a different tool. This is true for the Islamic studies. The field has gained much interests from western scholarships and the field of Digital Humanities. Islamic studies deals not only with Qur'an and Hadiths, but also the writings of the early Muslim scholars of the pre-modern Islam. It also deals with the modern world and advances in the society. The latter gave birth to technologies that transformed most of the informations into the digital world. The consumption of which gave new insights through digital and computational methods, a description fitting the definition of the Digital Humanities (DH). DH brings computer science into play with the analysis of the digital books, of which Statistics and Machine Learning brings in the math to extract new insights and make new inferences. Applying this to Islamic studies give birth into Islamic Digital Humanities.
+
+It's been my dream to apply my skills in Statistics and Machine Learning to analyzing/studying the Muslim traditions. _Applying the beauty of math to the literary beauty of the scriptures_. The scholarly work in Islamic studies will move with the addition of Digital Humanities, and this book aims to aide practitioners in the field.
 """
 
-# ╔═╡ cb72aec7-f165-42f1-8f3c-b493821527aa
-md"""
-## What is Digital Humanities?
-Digital Humanities is the study of humanities using computational approaches and/or using digitized data datasets. It aims to promote the use of computational approaches to extract never before seen insights.
-"""
+# ╔═╡ 94150ad7-30b3-4a6c-8386-49308e318e8a
 
-# ╔═╡ 03dc50f4-dc25-4522-9a1e-0eb3946f53b0
-md"""
-## Why Julia?
-As the title of the book stated, the programming language used in this book is the Julia ([Bezanson et al., 2017](#bezanson2017)) programming language. There are good alternatives of course like R and Python, both of which are more popular among the _Data Scientists_, but Julia has a lot of pros relative to the other two languages. In a nutshell, Julia took the best of R and Python and other languages.
-"""
 
-# ╔═╡ fb86dcc2-e4b1-49a5-9d91-dc6efe465f2a
-md"""
-## Libraries
-There are three main libraries developed for this task in Julia. These are the [_QuranTree.jl_](https://alstat.github.io/QuranTree.jl/stable/), [_Yunir.jl_](https://alstat.github.io/Yunir.jl/stable/) and the [_Kitab.jl_](https://alstat.github.io/Kitab.jl/stable/).
+# ╔═╡ 30bf0041-4046-4cf8-adc2-a6a67c858ab8
+@htl("""
+	<div style="text-align: right;"><i>Al-Ahmadgaid B. Asaad</i></div>
+	<div style="text-align: right;"><i>Quezon City, Philippines</i></div>
+	<div style="text-align: right;"><i>$(Dates.now())</i></div>
+""")
 
- - [_QuranTree.jl_](https://alstat.github.io/QuranTree.jl/stable/) is used for accessing the Qur'an and its morphological features down to the parts of the word.
- - [_Yunir.jl_](https://alstat.github.io/Yunir.jl/stable/) is used for Arabic natural language processing.
-- [_Kitab.jl_](https://alstat.github.io/Kitab.jl/stable/) is used for accessing pre-modern islamic text books from OpenITI.
-"""
-
-# ╔═╡ 82af8a11-5416-496a-b355-e8cbf6c0db63
-md"""
-# References
-"""
-
-# ╔═╡ 6f9b931d-6d38-45e7-9737-c6489b1cba46
-begin
-	hammon2012 = DOI("10.1142/S1793840612400120");
-	bezanson2017 = DOI("10.1137/141000671");
-	@htl("""
-	<ol>
-		<li><span id="bezanson2017">$(bezanson2017)</span></li>
-		<li><span id="hammon2012">$(hammon2012)</span></li>		
-	</ol>
-	""")
-end
-
-# ╔═╡ 432ef94d-f27b-4ba4-b0be-fd62f3e9082e
+# ╔═╡ 55ed126d-8b63-438d-9437-0f4737b37e5c
 html"""
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -87,19 +61,19 @@ html"""
 }
 
 </style>
-<hr/>
 """
 
 # ╔═╡ 00000000-0000-0000-0000-000000000001
 PLUTO_PROJECT_TOML_CONTENTS = """
 [deps]
+Dates = "ade2ca70-3891-5945-98fb-dc099432e06a"
 HypertextLiteral = "ac1192a8-f4b3-4bfe-ba22-af5b92cd3ab2"
 PlutoUI = "7f904dfe-b85e-4ff6-b463-dae2292396a8"
 ShortCodes = "f62ebe17-55c5-4640-972f-b59c0dd11ccf"
 
 [compat]
 HypertextLiteral = "~0.9.4"
-PlutoUI = "~0.7.39"
+PlutoUI = "~0.7.40"
 ShortCodes = "~0.3.3"
 """
 
@@ -365,14 +339,11 @@ uuid = "3f19e933-33d8-53b3-aaab-bd5110c3b7a0"
 """
 
 # ╔═╡ Cell order:
-# ╟─83c4bb76-a16a-4609-8352-a0c2326c7d79
-# ╟─70c047af-5030-4805-80a7-dc0924bb0a0a
-# ╟─cb72aec7-f165-42f1-8f3c-b493821527aa
-# ╟─03dc50f4-dc25-4522-9a1e-0eb3946f53b0
-# ╟─fb86dcc2-e4b1-49a5-9d91-dc6efe465f2a
-# ╟─82af8a11-5416-496a-b355-e8cbf6c0db63
-# ╟─6f9b931d-6d38-45e7-9737-c6489b1cba46
-# ╟─432ef94d-f27b-4ba4-b0be-fd62f3e9082e
-# ╟─b996a686-dd66-4a6a-88fe-a4ccf9c715d6
+# ╟─2ad22dd1-b597-4c85-8ee6-82d8473ec433
+# ╟─903c3d00-2f41-11ed-11a8-21ca786c9124
+# ╟─94150ad7-30b3-4a6c-8386-49308e318e8a
+# ╟─30bf0041-4046-4cf8-adc2-a6a67c858ab8
+# ╟─55ed126d-8b63-438d-9437-0f4737b37e5c
+# ╟─033aee27-3bfc-4ea6-9c79-cc7eea4f1146
 # ╟─00000000-0000-0000-0000-000000000001
 # ╟─00000000-0000-0000-0000-000000000002

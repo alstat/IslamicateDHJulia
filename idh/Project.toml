@@ -1,0 +1,6 @@
+[deps]
+CairoMakie = "13f3f980-e62b-5c42-98c6-ff1f3baf88f0"
+Embeddings = "c5bfea45-b7f1-5224-a596-15500f5db411"
+Pluto = "c3e4b0f8-55cb-11ea-2926-15256bba5781"
+QuranTree = "f647ab69-6f05-4d64-883f-59d0fbe08d2b"
+Yunir = "6ba116df-6904-454d-b214-90038a8281a6"

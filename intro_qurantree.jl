@@ -1,5 +1,5 @@
 ### A Pluto.jl notebook ###
-# v0.19.8
+# v0.19.11
 
 using Markdown
 using InteractiveUtils
@@ -27,7 +27,7 @@ end
 md"""
 # Introduction to QuranTree.jl
 
-In Islamic Studies, there are two main scriptures that are heavily studied in the discipline, the Holy Quran and the Hadith. Computationally, these books needs to be presented in digital form. In Julia, the Quranic Arabic Corpus is provided by the [_QuranTree.jl_](https://alstat.github.io/QuranTree.jl/stable/) library, which we are going to explore in this chapter.
+In Islamic Studies, there are two main scriptures that are heavily studied in the discipline, the Holy Quran and the Hadith. Computationally, these books need to be presented in digital form. In Julia, the Quranic Arabic Corpus is provided by the [_QuranTree.jl_](https://alstat.github.io/QuranTree.jl/stable/) library, which we are going to explore in this chapter.
 """
 
 # ╔═╡ 93d8c791-08c8-41ec-aad0-b235987da09f
@@ -601,7 +601,7 @@ uuid = "3f19e933-33d8-53b3-aaab-bd5110c3b7a0"
 
 # ╔═╡ Cell order:
 # ╟─8e608a5e-7156-410f-839e-67b2679168de
-# ╟─8a015ed0-9efd-4b1f-b60b-ca374788734e
+# ╠═8a015ed0-9efd-4b1f-b60b-ca374788734e
 # ╟─93d8c791-08c8-41ec-aad0-b235987da09f
 # ╟─73ac44ac-9c03-458f-9bcf-92e9284fd2ef
 # ╠═c7b74be3-1cb3-4a36-9912-51896ca4d366
