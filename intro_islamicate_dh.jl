@@ -4,7 +4,7 @@
 using Markdown
 using InteractiveUtils
 
-# ╔═╡ b996a686-dd66-4a6a-88fe-a4ccf9c715d6
+# ╔═╡ 1e2f76de-a734-41ef-9384-01e6cf8736c3
 begin
 	using Dates
 	using HypertextLiteral: @htl
@@ -13,52 +13,41 @@ begin
 	TableOfContents(title="Content")
 end
 
-# ╔═╡ 83c4bb76-a16a-4609-8352-a0c2326c7d79
+# ╔═╡ ea57d03a-9d72-4ccf-86f8-42a442d83287
 @htl("""
-<div style="text-align: right;">Chapter 1</div>
+<div style="text-align: right;">Chapter 2</div>
 <div style="text-align: right;"><i>last updated: $(Dates.now())</i></div>
 <br>
 <div style="text-align: right;"><a href="">Previous</a> | <a href="">Home</a> | <a href="">Next</a></div>
 """)
 
-# ╔═╡ 70c047af-5030-4805-80a7-dc0924bb0a0a
+# ╔═╡ e6b3c38b-1516-41e7-94b5-d8d6f911380e
 md"""
-# Introduction
+# Introduction to Islamicate Digital Humanities
 
-The advances of computers in recent decades brought forward computational approaches to all areas of disciplines including humanities, creating a new field of what we call today _Digital Humanities_. As for the Islamic Studies, there have been effort on applying the Computational Approaches to the study of the Qur'an, examples are in the work of [Hammo et al. (2012)](#hammon2012), where the authors used Probabilistic Topic Modeling approach to extract the topic of the surahs. The work of [Liu et al. (2019)](#liu2019) focused on the statistical analysis of God's traits in the Qur'an.
+The advances of computers in recent decades brought forward computational approaches to all areas of disciplines including humanities, creating a new field of what we call today _Digital Humanities_. As for the Islamic Studies, there have been effort on applying Computational Approaches on the study of the Qur'an, such as the work of [Hammo, et al. (2012)](#hammon2012).
 """
 
-# ╔═╡ cb72aec7-f165-42f1-8f3c-b493821527aa
+# ╔═╡ 30e41f2f-2714-4ec4-9258-7d2c44b3b3df
 md"""
-## What is Digital Humanities?
-Digital Humanities is the study of humanities using computational approaches and/or using digitized data datasets. It aims to promote the use of computational approaches to extract never before seen insights.
+## Islamic texts as data
+There have been effort on using.
 """
 
-# ╔═╡ 03dc50f4-dc25-4522-9a1e-0eb3946f53b0
+# ╔═╡ 3d294129-0cf2-444e-9ccf-34787b446e70
 md"""
-## Why Julia?
-As the title of the book stated, the programming language used in this book is the Julia ([Bezanson et al., 2017](#bezanson2017)) programming language. There are good alternatives of course like R and Python, both of which are more popular among the _Data Scientists_, but Julia has a lot of pros relative to the other two languages. In a nutshell, Julia took the best of R and Python and other languages.
+## Computational methods on Islamic texts
 """
 
-# ╔═╡ fb86dcc2-e4b1-49a5-9d91-dc6efe465f2a
-md"""
-## Libraries
-There are three main libraries developed for this task in Julia. These are the [_QuranTree.jl_](https://alstat.github.io/QuranTree.jl/stable/), [_Yunir.jl_](https://alstat.github.io/Yunir.jl/stable/) and the [_Kitab.jl_](https://alstat.github.io/Kitab.jl/stable/).
-
- - [_QuranTree.jl_](https://alstat.github.io/QuranTree.jl/stable/) is used for accessing the Qur'an and its morphological features down to the parts of the word.
- - [_Yunir.jl_](https://alstat.github.io/Yunir.jl/stable/) is used for Arabic natural language processing.
-- [_Kitab.jl_](https://alstat.github.io/Kitab.jl/stable/) is used for accessing pre-modern islamic text books from OpenITI.
-"""
-
-# ╔═╡ 82af8a11-5416-496a-b355-e8cbf6c0db63
+# ╔═╡ 0eba18f1-d1b9-4bd7-8b10-cd002db22153
 md"""
 # References
 """
 
-# ╔═╡ 9a03d0da-86ac-4979-8f73-11a11b271860
+# ╔═╡ 239eb67b-349c-4b2d-a165-37853f357221
 begin
-	bezanson2017 = DOI("10.1137/141000671");
 	hammon2012 = DOI("10.1142/S1793840612400120");
+	bezanson2017 = DOI("10.1137/141000671");
 	liu2019 = DOI("10.1093/llc/fqz051");
 	@htl("""
 	<ol>
@@ -69,7 +58,7 @@ begin
 	""")
 end
 
-# ╔═╡ 432ef94d-f27b-4ba4-b0be-fd62f3e9082e
+# ╔═╡ cbc9772c-9fe4-4fbc-9640-62ebba334fde
 html"""
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -104,7 +93,7 @@ ShortCodes = "f62ebe17-55c5-4640-972f-b59c0dd11ccf"
 
 [compat]
 HypertextLiteral = "~0.9.4"
-PlutoUI = "~0.7.39"
+PlutoUI = "~0.7.40"
 ShortCodes = "~0.3.3"
 """
 
@@ -370,14 +359,13 @@ uuid = "3f19e933-33d8-53b3-aaab-bd5110c3b7a0"
 """
 
 # ╔═╡ Cell order:
-# ╟─83c4bb76-a16a-4609-8352-a0c2326c7d79
-# ╟─70c047af-5030-4805-80a7-dc0924bb0a0a
-# ╟─cb72aec7-f165-42f1-8f3c-b493821527aa
-# ╟─03dc50f4-dc25-4522-9a1e-0eb3946f53b0
-# ╟─fb86dcc2-e4b1-49a5-9d91-dc6efe465f2a
-# ╟─82af8a11-5416-496a-b355-e8cbf6c0db63
-# ╟─9a03d0da-86ac-4979-8f73-11a11b271860
-# ╟─432ef94d-f27b-4ba4-b0be-fd62f3e9082e
-# ╟─b996a686-dd66-4a6a-88fe-a4ccf9c715d6
+# ╟─ea57d03a-9d72-4ccf-86f8-42a442d83287
+# ╟─e6b3c38b-1516-41e7-94b5-d8d6f911380e
+# ╟─30e41f2f-2714-4ec4-9258-7d2c44b3b3df
+# ╟─3d294129-0cf2-444e-9ccf-34787b446e70
+# ╟─0eba18f1-d1b9-4bd7-8b10-cd002db22153
+# ╟─239eb67b-349c-4b2d-a165-37853f357221
+# ╟─cbc9772c-9fe4-4fbc-9640-62ebba334fde
+# ╟─1e2f76de-a734-41ef-9384-01e6cf8736c3
 # ╟─00000000-0000-0000-0000-000000000001
 # ╟─00000000-0000-0000-0000-000000000002
