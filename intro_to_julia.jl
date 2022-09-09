@@ -4,7 +4,7 @@
 using Markdown
 using InteractiveUtils
 
-# ╔═╡ b996a686-dd66-4a6a-88fe-a4ccf9c715d6
+# ╔═╡ 9ea0cd46-56ff-4c3c-984b-854cfeb421ba
 begin
 	using Dates
 	using HypertextLiteral: @htl
@@ -13,7 +13,7 @@ begin
 	TableOfContents(title="Content")
 end
 
-# ╔═╡ 83c4bb76-a16a-4609-8352-a0c2326c7d79
+# ╔═╡ 136f891c-3d4d-405b-bbbc-d1993f35e3b2
 @htl("""
 <div style="text-align: right;">Chapter 1</div>
 <div style="text-align: right;"><i>last updated: $(Dates.now())</i></div>
@@ -21,55 +21,26 @@ end
 <div style="text-align: right;"><a href="">Previous</a> | <a href="">Home</a> | <a href="">Next</a></div>
 """)
 
-# ╔═╡ 70c047af-5030-4805-80a7-dc0924bb0a0a
+# ╔═╡ 35d7c122-0131-4968-89ad-13c7c2b9990b
 md"""
-# Introduction
+# Introduction to Julia programming language
 
-The advances of computers in recent decades brought forward computational approaches to all areas of disciplines including humanities, creating a new field of what we call today _Digital Humanities_. As for the Islamic Studies, there have been effort on applying the Computational Approaches to the study of the Qur'an, examples are in the work of [Hammo et al. (2012)](#hammon2012), where the authors used Probabilistic Topic Modeling approach to extract the topic of the surahs. The work of [Liu et al. (2019)](#liu2019) focused on the statistical analysis of God's traits in the Qur'an.
+There are several tools one can use for doing Digital Humanities depending on the problem. For this book, we assume that we can solve this problem using a programming language, in this case, we use Julia. Julia is a relatively new programming language, that is about 10 years already since its first announcement. It is a general purpose programming language in the sense that it can be used for solving different tasks, from simple math to as complex as creating an enterprise-grade software or website. It is, however, popular for numerical computing and is therefore ideal for doing Digital Humanities. In this chapter, we are going to take a look on how to use Julia as a programming language.
 """
 
-# ╔═╡ cb72aec7-f165-42f1-8f3c-b493821527aa
+# ╔═╡ a17c633e-3ebc-4faa-8ffa-1164db0d7361
 md"""
-## What is Digital Humanities?
-Digital Humanities is the study of humanities using computational approaches and/or using digitized data datasets. It aims to promote the use of computational approaches to extract never before seen insights.
+## Installation
+Julia can be downloaded from its [official website](https://julialang.org/), under the [download](https://julialang.org/downloads/) section. In here, you will find two Julia versions, the _current stable release_ and the _long term support (LTS) release_. We recommend to use the LTS version since all of the libraries in Julia have been tested in the said version. At the time of writing, the latest Julia LTS release is version 1.6.7.
 """
 
-# ╔═╡ 03dc50f4-dc25-4522-9a1e-0eb3946f53b0
+# ╔═╡ 38589e86-d635-4216-a956-4083e92c6ce6
 md"""
-## Why Julia?
-As the title of the book stated, the programming language used in this book is the Julia ([Bezanson et al., 2017](#bezanson2017)) programming language. There are good alternatives of course like R and Python, both of which are more popular among the _Data Scientists_, but Julia has a lot of pros relative to the other two languages. In a nutshell, Julia took the best of R and Python and other languages.
+### Windows
+If you are using Windows, then you need to download either the 64-bit (installer) or the 32-bit (installer). This can be detected in your system through the System Preference.
 """
 
-# ╔═╡ fb86dcc2-e4b1-49a5-9d91-dc6efe465f2a
-md"""
-## Libraries
-There are three main libraries developed for this task in Julia. These are the [_QuranTree.jl_](https://alstat.github.io/QuranTree.jl/stable/), [_Yunir.jl_](https://alstat.github.io/Yunir.jl/stable/) and the [_Kitab.jl_](https://alstat.github.io/Kitab.jl/stable/).
-
- - [_QuranTree.jl_](https://alstat.github.io/QuranTree.jl/stable/) is used for accessing the Qur'an and its morphological features down to the parts of the word.
- - [_Yunir.jl_](https://alstat.github.io/Yunir.jl/stable/) is used for Arabic natural language processing.
-- [_Kitab.jl_](https://alstat.github.io/Kitab.jl/stable/) is used for accessing pre-modern islamic text books from OpenITI.
-"""
-
-# ╔═╡ 82af8a11-5416-496a-b355-e8cbf6c0db63
-md"""
-# References
-"""
-
-# ╔═╡ 9a03d0da-86ac-4979-8f73-11a11b271860
-begin
-	bezanson2017 = DOI("10.1137/141000671");
-	hammon2012 = DOI("10.1142/S1793840612400120");
-	liu2019 = DOI("10.1093/llc/fqz051");
-	@htl("""
-	<ol>
-		<li><span id="bezanson2017">$(bezanson2017)</span></li>
-		<li><span id="liu2019">$(liu2019)</span></li>		
-		<li><span id="hammon2012">$(hammon2012)</span></li>		
-	</ol>
-	""")
-end
-
-# ╔═╡ 432ef94d-f27b-4ba4-b0be-fd62f3e9082e
+# ╔═╡ ee642408-2eed-464b-a178-6a4ce2d2f305
 html"""
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -104,7 +75,7 @@ ShortCodes = "f62ebe17-55c5-4640-972f-b59c0dd11ccf"
 
 [compat]
 HypertextLiteral = "~0.9.4"
-PlutoUI = "~0.7.39"
+PlutoUI = "~0.7.40"
 ShortCodes = "~0.3.3"
 """
 
@@ -370,14 +341,11 @@ uuid = "3f19e933-33d8-53b3-aaab-bd5110c3b7a0"
 """
 
 # ╔═╡ Cell order:
-# ╟─83c4bb76-a16a-4609-8352-a0c2326c7d79
-# ╟─70c047af-5030-4805-80a7-dc0924bb0a0a
-# ╟─cb72aec7-f165-42f1-8f3c-b493821527aa
-# ╟─03dc50f4-dc25-4522-9a1e-0eb3946f53b0
-# ╟─fb86dcc2-e4b1-49a5-9d91-dc6efe465f2a
-# ╟─82af8a11-5416-496a-b355-e8cbf6c0db63
-# ╟─9a03d0da-86ac-4979-8f73-11a11b271860
-# ╟─432ef94d-f27b-4ba4-b0be-fd62f3e9082e
-# ╟─b996a686-dd66-4a6a-88fe-a4ccf9c715d6
+# ╟─136f891c-3d4d-405b-bbbc-d1993f35e3b2
+# ╟─35d7c122-0131-4968-89ad-13c7c2b9990b
+# ╟─a17c633e-3ebc-4faa-8ffa-1164db0d7361
+# ╟─38589e86-d635-4216-a956-4083e92c6ce6
+# ╟─ee642408-2eed-464b-a178-6a4ce2d2f305
+# ╟─9ea0cd46-56ff-4c3c-984b-854cfeb421ba
 # ╟─00000000-0000-0000-0000-000000000001
 # ╟─00000000-0000-0000-0000-000000000002
