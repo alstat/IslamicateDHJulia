@@ -34,6 +34,17 @@ md"""
 Julia can be downloaded from its [official website](https://julialang.org/), under the [download](https://julialang.org/downloads/) section. In here, you will find two Julia versions, the _current stable release_ and the _long term support (LTS) release_. We recommend to use the LTS version since all of the libraries in Julia have been tested in the said version. At the time of writing, the latest Julia LTS release is version 1.6.7.
 """
 
+# ╔═╡ d2e0b9d3-f4b6-400c-a6d1-d24af3fb3030
+readdir(joinpath(pwd(), "img"))
+
+# ╔═╡ d08847e4-0c8f-45ff-99e9-f05ab48ffed2
+joinpath(pwd(), "img")
+
+# ╔═╡ 7b414135-4ee0-4fcf-b098-d50ddc824ca6
+@htl("""
+<img src=$(joinpath(pwd(), "img/julia_downloads.png"))>
+""")
+
 # ╔═╡ 38589e86-d635-4216-a956-4083e92c6ce6
 md"""
 ### Windows
@@ -344,6 +355,9 @@ uuid = "3f19e933-33d8-53b3-aaab-bd5110c3b7a0"
 # ╟─136f891c-3d4d-405b-bbbc-d1993f35e3b2
 # ╟─35d7c122-0131-4968-89ad-13c7c2b9990b
 # ╟─a17c633e-3ebc-4faa-8ffa-1164db0d7361
+# ╠═d2e0b9d3-f4b6-400c-a6d1-d24af3fb3030
+# ╠═d08847e4-0c8f-45ff-99e9-f05ab48ffed2
+# ╠═7b414135-4ee0-4fcf-b098-d50ddc824ca6
 # ╟─38589e86-d635-4216-a956-4083e92c6ce6
 # ╟─ee642408-2eed-464b-a178-6a4ce2d2f305
 # ╟─9ea0cd46-56ff-4c3c-984b-854cfeb421ba
