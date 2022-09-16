@@ -16,11 +16,12 @@ begin
 	TableOfContents(title="Content")	
 end
 
-# ╔═╡ 8e608a5e-7156-410f-839e-67b2679168de
+# ╔═╡ 73ca3514-361d-402b-b593-159cbb56abc5
 @htl("""
-<div style="text-align: right;">
-<i>Chapter 7: Introduction to QuranTree.jl</i>
-<br/><i>last updated: $(Dates.now())</i></div>
+<div style="text-align: right;">Chapter 1</div>
+<div style="text-align: right;"><i>last updated: $(Dates.now())</i></div>
+<br>
+<div style="text-align: right;"><a href="">Previous</a> | <a href="">Home</a> | <a href="">Next</a></div>
 """)
 
 # ╔═╡ 8a015ed0-9efd-4b1f-b60b-ca374788734e
@@ -600,8 +601,8 @@ uuid = "3f19e933-33d8-53b3-aaab-bd5110c3b7a0"
 """
 
 # ╔═╡ Cell order:
-# ╟─8e608a5e-7156-410f-839e-67b2679168de
-# ╠═8a015ed0-9efd-4b1f-b60b-ca374788734e
+# ╟─73ca3514-361d-402b-b593-159cbb56abc5
+# ╟─8a015ed0-9efd-4b1f-b60b-ca374788734e
 # ╟─93d8c791-08c8-41ec-aad0-b235987da09f
 # ╟─73ac44ac-9c03-458f-9bcf-92e9284fd2ef
 # ╠═c7b74be3-1cb3-4a36-9912-51896ca4d366
@@ -632,7 +633,7 @@ uuid = "3f19e933-33d8-53b3-aaab-bd5110c3b7a0"
 # ╠═acafed89-10fd-4dc2-96d0-e63d52bae4aa
 # ╟─992b8160-472a-4309-a2f2-1dd2f8a95781
 # ╠═1288b076-ccf8-4f85-9570-bd12f34a54b5
-# ╠═1fa4d02e-8ec2-40f4-b1f1-c60d8fde4c7d
-# ╠═3ce39a60-9897-4641-84a1-66b223ce65b5
+# ╟─1fa4d02e-8ec2-40f4-b1f1-c60d8fde4c7d
+# ╟─3ce39a60-9897-4641-84a1-66b223ce65b5
 # ╟─00000000-0000-0000-0000-000000000001
 # ╟─00000000-0000-0000-0000-000000000002
